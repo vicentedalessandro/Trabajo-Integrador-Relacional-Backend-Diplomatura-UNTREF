@@ -4,8 +4,8 @@
 
 En este proyecto, desarrollarás una plataforma de streaming usando Node.js y MySQL. La aplicación permitirá realizar operaciones CRUD (Crear, Leer, Actualizar, Eliminar) sobre una base de datos relacional, utilizando el archivo trailerflix.json como referencia para diseñar el modelo de datos.
 
-## Pre-Entrega
-Esta pre-entrega se enfocará en diseñar y crear la base de datos para una plataforma de streaming, usando MySQL y Node.js, junto con su respectiva documentación.
+## Entrega
+Esta entrega se enfocará en diseñar y crear la base de datos para una plataforma de streaming, usando MySQL y Node.js, junto con su respectiva documentación.
 
 Aprovecha lo visto en las clases para comenzar a diseñar las tablas y relaciones necesarias, las cuales deberán estar basadas en las propiedades del archivo trailerflix.json.
 
