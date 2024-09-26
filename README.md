@@ -2,53 +2,74 @@
 
 ## Descripción del Proyecto
 
-En este proyecto, desarrollarás una aplicación basada en Node.js y MySQL que permita realizar operaciones CRUD (Crear, Leer, Actualizar, Eliminar) en una base de datos. La base de datos MySQL deberá estar generada en MySQL Workbench y tu aplicación Node.js se conectará a ella.
+En este proyecto, desarrollarás una plataforma de streaming usando Node.js y MySQL. La aplicación permitirá realizar operaciones CRUD (Crear, Leer, Actualizar, Eliminar) sobre una base de datos relacional, utilizando el archivo trailerflix.json como referencia para diseñar el modelo de datos.
 
-Deberás usar el dataset JSON proporcionado.
+## Pre-Entrega
+Esta pre-entrega se enfocará en diseñar y crear la base de datos para una plataforma de streaming, usando MySQL y Node.js, junto con su respectiva documentación.
 
-## Datasets Proporcionados
+Aprovecha lo visto en las clases para comenzar a diseñar las tablas y relaciones necesarias, las cuales deberán estar basadas en las propiedades del archivo trailerflix.json.
 
-- **trailerflix.json**: Datos de peliculas.
+## Dataset Proporcionados
+
+- **trailerflix.json**: Contiene información detallada sobre contenido de la plataforma, como películas y series. Deberás utilizar este archivo como base para diseñar el modelo de datos.
+
+## Modelo de Base de Datos
+El archivo trailerflix.json incluye propiedades como ID, título, categorías, géneros, resumen, temporadas, reparto y enlaces a trailers. Basado en esta estructura, debes diseñar una base de datos llamada trailerflix con al menos 6 tablas relacionales. Entre ellas:
+
+- **contenido**: Tabla principal con la información de películas y series.
+- **categorías**: Definirá si el contenido es una película o una serie.
+- **géneros**: Almacenará los géneros como Ciencia Ficción, Fantasía, etc.
+- **actores**: Información sobre los actores principales de cada contenido.
+- **tabla intermedia contenido-actores**: Relacionará el contenido con los actores.
+El diseño debe ser bocetado primero en papel y luego implementado en la plataforma **DB Designer** sugerida en clase. Debes generar un archivo SQL de exportación que podrás usar para crear las tablas en MySQL.
+
+## Pasos a Seguir
+1. **Diseñar el modelo de datos** basado en trailerflix.json.
+2. **Implementar las tablas** en DB Designer, asegurando que haya relaciones adecuadas entre ellas.
+3. **Generar el archivo SQL** para crear las tablas en MySQL.
+4. **Migrar los datos** del archivo JSON a MySQL utilizando los insert correspondientes.
 
 ## Funcionalidades del CRUD
 
-1. **Obtener todos los productos**
-   - Endpoint para leer todos los productos de la colección.
+1. **Obtener todos los contenidos**
+   - Endpoint que devuelve todos los contenidos de la base de datos.
    - Control de errores para manejar la indisponibilidad de la base de datos.
 
-2. **Obtener un producto**
-   - Endpoint para obtener un producto por su ID.
-   - Control de errores para manejar casos en que el producto no se encuentre o la base de datos no esté disponible.
+2. **Obtener un contenido por ID**
+   - Endpoint para obtener un contenido específico.
+   - Control de errores para manejar casos en que el contenido no exista.
 
-3. **Filtrar productos**
-   - Endpoint para filtrar productos por nombre (búsqueda parcial).
+3. **Filtrar contenidos**
+   - Endpoint para filtrar por título, género o categoría.
    - Control de errores para manejar coincidencias no encontradas o problemas de conexión.
 
-4. **Agregar un nuevo producto**
-   - Endpoint para agregar un nuevo producto.
-   - Validación y control de errores.
-   - Generación de un código numérico para el nuevo producto.
+4. **Agregar un nuevo contenido**
+   - Endpoint para agregar una nueva pelicula o serie a la base de datos.
+   - Validación de campos obligatorios.
 
-5. **Modificar el precio de un producto**
-   - Endpoint para cambiar el precio de un producto usando PATCH.
-   - Control de errores para manejar problemas durante la actualización.
+5. **Actualizar un contenido:**
+   - Endpoint para actualizar información como temporadas o reparto.
+   - Control de errores para manejar actualizaciones fallidas.
      
-6. **Borrar un producto**
-   - Endpoint para borrar un producto usando DELETE.
+6. **Eliminar un contenido**
+   - Endpoint para eliminar un contenido de la base de datos.
    - Control de errores para manejar problemas durante el borrado.
 
 7. **Control de errores**
    - Manejo de errores en la estructura de las solicitudes y respuestas.
    - Respuesta adecuada con mensajes y códigos de error específicos.
    - Control de acceso a rutas no existentes con respuestas apropiadas.
+  
+## Herramientas Sugeridas
+Utiliza una **I.A.** como sugerimos en clase para optimizar la inserción de los datos del JSON a la base de datos. Esto puede ayudarte a transformar el archivo *trailerflix.json* en un formato que sea más fácil de insertar en MySQL.
 
 ## Fechas Importantes
 
 - **Avance del Proyecto**: 10 de octubre de 2024
-  - Tener listos los endpoints básicos, el control de rutas inexistentes, la conexión con MySQL y los métodos GET funcionando.
+  - Tener diseñadas las tablas en DB Designer, con el archivo SQL generado y los primeros endpoints funcionando.
 
 - **Presentación Final**: 24 de octubre de 2024
-  - Proyecto 100% funcional.
+  - Proyecto completo con CRUD y toda la documentación.
 
 ## Estructura del Repositorio
 
@@ -57,17 +78,25 @@ Deberás usar el dataset JSON proporcionado.
   - trailerflix.json
 /README.md
 /app.js
-/database.js
-/product.js
+/conexion/
+  - database.js
+/models/
+  - contenido.js
+  - categoria.js
+  - genero.js
+  - actor.js
+/routes/
+  - contenidoRoutes.js
 ```
 
 ### Descripción de Archivos
 
-- **/json**: Carpeta que contiene los datasets JSON.
-- **/README.md**: Archivo con la descripción del proyecto.
-- **/app.js**: Archivo principal de la aplicación Node.js donde se define toda la lógica de rutas y la conexión a la base de datos.
-- **/database.js**: Archivo para configurar la conexión a la base de datos MongoDB.
-- **/product.js**: Archivo que contiene el esquema (schema) del producto utilizando Mongoose.
+- **/json**: Contiene el archivo trailerflix.json con los datos de películas y series.
+- **/README.md**: Este archivo, con la descripción del proyecto.
+- **/app.js**: Archivo principal de la aplicación Node.js.
+- **/conexion/database.js**: Configuración de la conexión a MySQL.
+- **/models/**: Modelos de datos para las tablas en MySQL.
+- **/routes/**: Definición de las rutas y endpoints del CRUD.
 
 ## Instrucciones de Entrega
 
@@ -92,7 +121,7 @@ Deberás usar el dataset JSON proporcionado.
 
 ## Conclusión
 
-Este proyecto te permitirá aplicar tus conocimientos en desarrollo backend con Node.js y MySQL, implementando un CRUD completo con control de errores y buenas prácticas. ¡Buena suerte y adelante con el desarrollo!
+Este proyecto te permitirá aplicar conceptos clave de desarrollo backend, diseño de bases de datos y documentación. ¡Adelanta los pasos y recuerda mantener tu código limpio y bien documentado!
 
 ---
 
