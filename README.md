@@ -74,6 +74,8 @@ Utiliza una **I.A.** como sugerimos en clase para optimizar la inserción de los
 ## Estructura del Repositorio
 
 ```plaintext
+/controllers
+  - contenidoController.js
 /json
   - trailerflix.json
 /README.md
