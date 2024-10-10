@@ -1,0 +1,24 @@
+{
+  "name": "trabajo-integrador-relacional-backend-diplomatura-untref",
+  "version": "1.0.0",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node ./src/app.js",
+    "dev": "node --watch ./src/app.js"
+  },
+  "type": "module",
+  "keywords": [],
+  "author": "Vicente D'Alessandro",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "express": "^4.21.1",
+    "morgan": "^1.10.0",
+    "mysql2": "^3.11.3",
+    "sequelize": "^6.37.4"
+  },
+  "devDependencies": {
+    "standard": "^17.1.2"
+  }
+}
