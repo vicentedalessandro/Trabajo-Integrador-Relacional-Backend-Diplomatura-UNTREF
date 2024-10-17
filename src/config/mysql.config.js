@@ -7,11 +7,12 @@ const USER = process.env.MYSQL_USER
 const PASSWORD = process.env.MYSQL_PASSWORD
 const DATABASE = process.env.MYSQL_DATABASE
 
-const connectionConfig = {
+const mysqlConfig = {
   host: HOST,
   user: USER,
   password: PASSWORD,
-  database: DATABASE
+  database: DATABASE,
+  dialect: 'mysql'
 }
 
-export { connectionConfig }
+export { mysqlConfig }
