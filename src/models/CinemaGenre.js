@@ -23,7 +23,7 @@ const CinemaGenre = sequelize.define('CinemaGenre', {
     }
   }
 }, {
-  tableName: 'Cinema_Genres',
+  tableName: 'cinema_genres',
   timestamps: false
 })
 

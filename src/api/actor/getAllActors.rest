@@ -1,0 +1,2 @@
+GET http://localhost:3000/actor
+content-type: application/json

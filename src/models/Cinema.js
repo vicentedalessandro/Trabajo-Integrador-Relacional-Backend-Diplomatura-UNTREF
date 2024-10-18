@@ -49,7 +49,7 @@ const Cinema = sequelize.define('Cinema', {
     }
   }
 }, {
-  tableName: 'Cinema',
+  tableName: 'cinema',
   timestamps: false
 })
 

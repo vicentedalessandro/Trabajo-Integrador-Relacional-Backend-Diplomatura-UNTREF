@@ -1,0 +1,2 @@
+GET http://localhost:3000/actor?actorName=Pedro%20Pascal
+content-type: application/json

@@ -14,7 +14,7 @@ const Actor = sequelize.define('Actor', {
     field: 'actor_name'
   }
 }, {
-  tableName: 'Actors',
+  tableName: 'actors',
   timestamps: false
 })
 

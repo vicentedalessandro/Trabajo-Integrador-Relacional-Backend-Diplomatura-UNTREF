@@ -14,7 +14,7 @@ const Genre = sequelize.define('Genre', {
     field: 'genre_name'
   }
 }, {
-  tableName: 'Genres',
+  tableName: 'genres',
   timestamps: false
 })
 

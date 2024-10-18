@@ -23,7 +23,7 @@ const CinemaActor = sequelize.define('CinemaActor', {
     }
   }
 }, {
-  tableName: 'Cinema_Actors',
+  tableName: 'cinema_actors',
   timestamps: false
 })
 

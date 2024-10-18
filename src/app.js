@@ -1,5 +1,6 @@
 import express from 'express'
 import morgan from 'morgan'
+import { router as actorRouter } from './routes/actor.routes.js'
 import { routeNotFound } from './middleware/routeNotFound.js'
 import { fetchFilms } from './service/fetchFilms.js'
 
@@ -16,6 +17,8 @@ app.use('/public', express.static('./public'))
 app.get('/', (req, res) => {
   res.status(200).json({ message: 'The server is listening...' })
 })
+
+app.use('/actor', actorRouter)
 
 app.get('/unique-details', async (req, res) => {
   fetchFilms().then((data) => {

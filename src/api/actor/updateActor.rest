@@ -1,0 +1,6 @@
+PUT http://localhost:3000/actor/4
+content-type: application/json
+
+{
+  "actorName": "Chris Bartlett"
+}
