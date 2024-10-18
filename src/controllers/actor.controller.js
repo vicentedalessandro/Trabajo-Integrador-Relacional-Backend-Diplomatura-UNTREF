@@ -7,10 +7,10 @@ const getAllActors = async (req, res) => {
     await sequelize.authenticate()
     await Actor.sync()
     if (!actorName) {
-      const allActor = await Actor.findAll()
-      allActor.length === 0
+      const allActors = await Actor.findAll()
+      allActors.length === 0
         ? res.status(404).json({ message: 'ERROR 404 - Not Found: get all Actors.' })
-        : res.status(200).json(allActor)
+        : res.status(200).json(allActors)
     } else {
       const actor = await Actor.findOne({ where: { actorName } })
       !actor
@@ -77,7 +77,7 @@ const deleteActor = async (req, res) => {
     await actor.destroy()
     res.status(204).json({ message: 'Actor Deleted.' })
   } catch (err) {
-    res.status(500).json({ message: 'ERROR 500 - Internal Server Error: update Actor.', err })
+    res.status(500).json({ message: 'ERROR 500 - Internal Server Error: delete Actor.', err })
   }
 }
 
