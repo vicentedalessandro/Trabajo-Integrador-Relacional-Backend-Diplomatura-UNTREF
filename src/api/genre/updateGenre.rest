@@ -1,0 +1,6 @@
+PUT http://localhost:3000/genre/1
+content-type: application/json
+
+{
+  "genreName": "Sci-Fi"
+}

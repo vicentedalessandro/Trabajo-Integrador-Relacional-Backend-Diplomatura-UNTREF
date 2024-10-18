@@ -12,9 +12,9 @@ const extractUniqueDetails = (data) => {
   })
 
   return {
-    actors: [...actorsSet],
+    categories: [...categoriesSet],
     genres: [...genresSet],
-    categories: [...categoriesSet]
+    actors: [...actorsSet]
   }
 }
 

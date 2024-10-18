@@ -1,0 +1,2 @@
+GET http://localhost:3000/genre?genreName=
+content-type: application/json

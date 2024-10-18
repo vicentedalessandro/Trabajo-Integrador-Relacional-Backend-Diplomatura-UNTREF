@@ -39,7 +39,7 @@ const getCategoryByPK = async (req, res) => {
 const createCategory = async (req, res) => {
   const { categoryName } = req.body
   try {
-    const response = await fetch(`http://localhost:3000/category?categoryName=${categoryName}`)
+    const response = await fetch(`http://localhost:${process.env.PORT}/category?categoryName=${categoryName}`)
     if (response.status === 200) return res.status(409).json({ message: `Category already exists with this name: ${categoryName}` })
     await sequelize.authenticate()
     await Category.sync()
@@ -54,7 +54,7 @@ const updateCategory = async (req, res) => {
   const { categoryID } = req.params
   const { categoryName } = req.body
   try {
-    const response = await fetch(`http://localhost:3000/category?categoryName=${categoryName}`)
+    const response = await fetch(`http://localhost:${process.env.PORT}/category?categoryName=${categoryName}`)
     if (response.status === 200) return res.status(409).json({ message: `Category already exists with this name: ${categoryName}` })
     await sequelize.authenticate()
     await Category.sync()
