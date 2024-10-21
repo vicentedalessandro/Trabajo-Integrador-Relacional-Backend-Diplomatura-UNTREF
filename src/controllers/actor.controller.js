@@ -39,8 +39,8 @@ const getActorByPK = async (req, res) => {
 const createActor = async (req, res) => {
   const { actorName } = req.body
   try {
-    const response = await fetch(`http://localhost:${process.env.PORT}/actor?actorName=${actorName}`)
-    if (response.status === 200) return res.status(409).json({ message: `Actor already exists with this name: ${actorName}` })
+    const actorFound = await Actor.findOne({ where: { actorName } })
+    if (actorFound) return res.status(409).json({ message: `Actor already exists with this name: ${actorName}` })
     await sequelize.authenticate()
     await Actor.sync()
     const actor = await Actor.create({ actorName })
@@ -54,8 +54,8 @@ const updateActor = async (req, res) => {
   const { actorID } = req.params
   const { actorName } = req.body
   try {
-    const response = await fetch(`http://localhost:${process.env.PORT}/actor?actorName=${actorName}`)
-    if (response.status === 200) return res.status(409).json({ message: `Actor already exists with this name: ${actorName}` })
+    const actorFound = await Actor.findOne({ where: { actorName } })
+    if (actorFound) return res.status(409).json({ message: `Actor already exists with this name: ${actorName}` })
     await sequelize.authenticate()
     await Actor.sync()
     const result = await Actor.update({ actorName }, { where: { actorID } })

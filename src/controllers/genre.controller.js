@@ -39,8 +39,8 @@ const getGenreByPK = async (req, res) => {
 const createGenre = async (req, res) => {
   const { genreName } = req.body
   try {
-    const response = await fetch(`http://localhost:${process.env.PORT}/genre?genreName=${genreName}`)
-    if (response.status === 200) return res.status(409).json({ message: `Genre already exists with this name: ${genreName}` })
+    const genreFound = await Genre.findOne({ where: { genreName } })
+    if (genreFound) return res.status(409).json({ message: `Genre already exists with this name: ${genreName}` })
     await sequelize.authenticate()
     await Genre.sync()
     const genre = await Genre.create({ genreName })
@@ -54,8 +54,8 @@ const updateGenre = async (req, res) => {
   const { genreID } = req.params
   const { genreName } = req.body
   try {
-    const response = await fetch(`http://localhost:${process.env.PORT}/genre?genreName=${genreName}`)
-    if (response.status === 200) return res.status(409).json({ message: `Genre already exists with this name: ${genreName}` })
+    const genreFound = await Genre.findOne({ where: { genreName } })
+    if (genreFound) return res.status(409).json({ message: `Genre already exists with this name: ${genreName}` })
     await sequelize.authenticate()
     await Genre.sync()
     const result = await Genre.update({ genreName }, { where: { genreID } })

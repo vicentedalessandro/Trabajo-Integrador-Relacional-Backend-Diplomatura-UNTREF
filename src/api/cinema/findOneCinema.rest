@@ -1,0 +1,2 @@
+GET http://localhost:3000/cinema?title=
+content-type: application/json

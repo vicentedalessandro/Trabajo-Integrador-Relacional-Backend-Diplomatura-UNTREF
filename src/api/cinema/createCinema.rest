@@ -1,0 +1,12 @@
+POST http://localhost:3000/cinema
+content-type: application/json
+
+{
+  "poster": "./posters/3.jpg",
+  "title": "The Mandalorian",
+  "resume": "Ambientada tras la caída del Imperio y antes de la aparición de la Primera Orden, la Serie sigue los pasos de un pistolero solitario en las aventuras que protagoniza en los confines de la galaxia, donde no alcanza la autoridad de la Nueva República.",
+  "seasons": "2",
+  "duration": "N/A",
+  "trailer": "https://www.youtube.com/embed/aOC8E8z_ifw",
+  "categoryID": 1
+}

@@ -1,0 +1,12 @@
+PUT http://localhost:3000/cinema/4
+content-type: application/json
+
+{ 
+  "poster":,
+  "title":,
+  "resume":,
+  "seasons":,
+  "duration":,
+  "trailer":,
+  "categoryID":
+}
