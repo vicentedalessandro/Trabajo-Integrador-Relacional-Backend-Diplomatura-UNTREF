@@ -5,6 +5,8 @@ import { router as actorRouter } from './routes/actor.routes.js'
 import { router as categoryRouter } from './routes/category.routes.js'
 import { router as genreRouter } from './routes/genre.routes.js'
 import { router as cinemaRouter } from './routes/cinema.routes.js'
+import { router as cinemaActorRouter } from './routes/cinema_actor.routes.js'
+import { router as cinemaGenreRouter } from './routes/cinema_genre.routes.js'
 import { sequelizeMiddleware } from './middleware/sequelize.middleware.js'
 import { notFound } from './middleware/notfound.middleware.js'
 import { fetchFilms } from './service/fetchFilms.js'
@@ -38,6 +40,8 @@ app.use('/actor', actorRouter)
 app.use('/category', categoryRouter)
 app.use('/genre', genreRouter)
 app.use('/cinema', cinemaRouter)
+app.use('/cinema_actor', cinemaActorRouter)
+app.use('/cinema_genre', cinemaGenreRouter)
 
 // ERROR 404 - Not found
 app.use(notFound)

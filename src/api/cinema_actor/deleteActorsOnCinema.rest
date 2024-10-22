@@ -1,0 +1,6 @@
+DELETE http://localhost:3000/cinema_actor/1
+content-type: application/json
+
+{
+  "actors": [1,2]
+}

@@ -2,5 +2,5 @@ POST http://localhost:3000/genre
 content-type: application/json
 
 {
-  "genreName": "Algo"
+  "genreName": "Algo2"
 }

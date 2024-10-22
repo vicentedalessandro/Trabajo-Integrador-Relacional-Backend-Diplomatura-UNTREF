@@ -1,0 +1,9 @@
+PUT http://localhost:3000/cinema_actor/1
+content-type: application/json
+
+{
+  "actor": {
+    "old": 1,
+    "new": 2
+  }
+}

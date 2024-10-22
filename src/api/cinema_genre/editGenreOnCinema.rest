@@ -1,0 +1,9 @@
+POST http://localhost:3000/cinema_genre/1
+content-type: application/json
+
+{
+  "genre": {
+    "old": 1,
+    "new": 2
+  }
+}

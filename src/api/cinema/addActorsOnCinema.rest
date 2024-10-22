@@ -1,6 +1,0 @@
-POST http://localhost:3000/cinema/actor/1
-content-type: application/json
-
-{
-  "actors": [1]
-}

@@ -1,0 +1,6 @@
+DELETE http://localhost:3000/cinema_genre/1
+content-type: application/json
+
+{
+  "genres": [1,2]
+}

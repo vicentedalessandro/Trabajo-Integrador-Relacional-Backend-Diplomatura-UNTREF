@@ -8,7 +8,5 @@ router.get('/', controller.getAllCinema)
   .post('/', controller.createCinema)
   .put('/:cinemaID', controller.updateCinema)
   .delete('/:cinemaID', controller.deleteCinema)
-  .post('/actor/:cinemaID', controller.addActorsOnCinema)
-  .post('/genre/:cinemaID', controller.addGenresOnCinema)
 
 export { router }

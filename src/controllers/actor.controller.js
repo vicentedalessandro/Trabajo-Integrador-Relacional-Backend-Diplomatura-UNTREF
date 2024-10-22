@@ -4,12 +4,12 @@ const getAllActors = async (req, res) => {
   const { actorName } = req.query
   try {
     if (!actorName) {
-      const allActors = await Actor.findAll()
+      const allActors = await Actor.findAll({ attributes: ['id_actor', 'actor_name'] })
       allActors.length === 0
         ? res.status(404).json({ message: 'ERROR 404 - Not Found: get all Actors.' })
         : res.status(200).json(allActors)
     } else {
-      const actor = await Actor.findOne({ where: { actorName } })
+      const actor = await Actor.findOne({ where: { actorName }, attributes: ['id_actor', 'actor_name'] })
       !actor
         ? res.status(404).json({ message: 'ERROR 404 - Not Found: get all Actors.' })
         : res.status(200).json({ message: 'Find one.' })
@@ -22,7 +22,7 @@ const getAllActors = async (req, res) => {
 const getActorByPK = async (req, res) => {
   const { actorID } = req.params
   try {
-    const actor = await Actor.findByPk(actorID)
+    const actor = await Actor.findByPk(actorID, { attributes: ['id_actor', 'actor_name'] })
     !actor
       ? res.status(404).json({ message: 'ERROR 404 - Not Found: get Actor by PK.' })
       : res.status(200).json(actor)
@@ -34,7 +34,7 @@ const getActorByPK = async (req, res) => {
 const createActor = async (req, res) => {
   const { actorName } = req.body
   try {
-    const actorFound = await Actor.findOne({ where: { actorName } })
+    const actorFound = await Actor.findOne({ where: { actorName }, attributes: ['id_actor'] })
     if (actorFound) return res.status(409).json({ message: `Actor already exists with this name: ${actorName}` })
     const actor = await Actor.create({ actorName })
     res.status(201).json(actor)
@@ -47,7 +47,7 @@ const updateActor = async (req, res) => {
   const { actorID } = req.params
   const { actorName } = req.body
   try {
-    const actorFound = await Actor.findOne({ where: { actorName } })
+    const actorFound = await Actor.findOne({ where: { actorName }, attributes: ['id_actor'] })
     if (actorFound) return res.status(409).json({ message: `Actor already exists with this name: ${actorName}` })
     const result = await Actor.update({ actorName }, { where: { actorID } })
     result === 0
@@ -61,7 +61,7 @@ const updateActor = async (req, res) => {
 const deleteActor = async (req, res) => {
   const { actorID } = req.params
   try {
-    const actor = await Actor.findByPk(actorID)
+    const actor = await Actor.findByPk(actorID, { attributes: ['id_actor'] })
     if (!actor) return res.status(404).json({ message: 'ERROR 404 - Not Found: get Actor by PK on delete Actor.' })
     await actor.destroy()
     res.status(204).json({ message: 'Actor Deleted.' })
