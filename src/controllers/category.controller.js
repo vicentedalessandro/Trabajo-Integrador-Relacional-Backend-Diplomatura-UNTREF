@@ -70,6 +70,12 @@ const deleteCategory = async (req, res) => {
   }
 }
 
-const categoryController = { getAllCategories, getCategoryByPK, createCategory, updateCategory, deleteCategory }
+const categoryController = {
+  getAllCategories,
+  getCategoryByPK,
+  createCategory,
+  updateCategory,
+  deleteCategory
+}
 
 export { categoryController }

@@ -1,7 +1,7 @@
 import { DataTypes } from 'sequelize'
 import { sequelize } from '../db/connection.js'
-import { Cinema } from './Cinema.js'
 import { Genre } from './Genre.js'
+import { Cinema } from './Cinema.js'
 
 const CinemaGenre = sequelize.define('CinemaGenre', {
   cinemaID: {
@@ -27,6 +27,14 @@ const CinemaGenre = sequelize.define('CinemaGenre', {
 }, {
   tableName: 'cinema_genres',
   timestamps: false
+})
+
+Genre.belongsToMany(Cinema, {
+  through: CinemaGenre
+})
+Cinema.belongsToMany(Genre, {
+  through: CinemaGenre,
+  as: 'genres'
 })
 
 export { CinemaGenre }

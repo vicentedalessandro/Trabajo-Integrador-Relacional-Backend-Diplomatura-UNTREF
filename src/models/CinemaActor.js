@@ -1,7 +1,7 @@
 import { DataTypes } from 'sequelize'
 import { sequelize } from '../db/connection.js'
-import { Cinema } from './Cinema.js'
 import { Actor } from './Actor.js'
+import { Cinema } from './Cinema.js'
 
 const CinemaActor = sequelize.define('CinemaActor', {
   cinemaID: {
@@ -27,6 +27,14 @@ const CinemaActor = sequelize.define('CinemaActor', {
 }, {
   tableName: 'cinema_actors',
   timestamps: false
+})
+
+Actor.belongsToMany(Cinema, {
+  through: CinemaActor
+})
+Cinema.belongsToMany(Actor, {
+  through: CinemaActor,
+  as: 'cast'
 })
 
 export { CinemaActor }

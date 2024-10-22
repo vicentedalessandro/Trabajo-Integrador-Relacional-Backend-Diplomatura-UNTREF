@@ -6,7 +6,7 @@ import { router as categoryRouter } from './routes/category.routes.js'
 import { router as genreRouter } from './routes/genre.routes.js'
 import { router as cinemaRouter } from './routes/cinema.routes.js'
 import { sequelizeMiddleware } from './middleware/sequelize.middleware.js'
-import { routeNotFound } from './middleware/routeNotFound.js'
+import { notFound } from './middleware/notfound.middleware.js'
 import { fetchFilms } from './service/fetchFilms.js'
 
 loadEnvFile()
@@ -40,7 +40,7 @@ app.use('/genre', genreRouter)
 app.use('/cinema', cinemaRouter)
 
 // ERROR 404 - Not found
-app.use(routeNotFound)
+app.use(notFound)
 
 // Server
 const PORT = process.env.PORT || 3000

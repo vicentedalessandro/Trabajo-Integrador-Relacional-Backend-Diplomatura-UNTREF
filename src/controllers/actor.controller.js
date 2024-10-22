@@ -70,6 +70,12 @@ const deleteActor = async (req, res) => {
   }
 }
 
-const actorController = { getAllActors, getActorByPK, createActor, updateActor, deleteActor }
+const actorController = {
+  getAllActors,
+  getActorByPK,
+  createActor,
+  updateActor,
+  deleteActor
+}
 
 export { actorController }

@@ -70,6 +70,12 @@ const deleteGenre = async (req, res) => {
   }
 }
 
-const genreController = { getAllGenres, getGenreByPK, createGenre, updateGenre, deleteGenre }
+const genreController = {
+  getAllGenres,
+  getGenreByPK,
+  createGenre,
+  updateGenre,
+  deleteGenre
+}
 
 export { genreController }

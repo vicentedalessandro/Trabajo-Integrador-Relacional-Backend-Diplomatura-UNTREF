@@ -1,8 +1,6 @@
 import { DataTypes } from 'sequelize'
 import { sequelize } from '../db/connection.js'
 import { Category } from './Category.js'
-import { Actor } from './Actor.js'
-import { Genre } from './Genre.js'
 
 const Cinema = sequelize.define('Cinema', {
   cinemaID: {
@@ -42,6 +40,15 @@ const Cinema = sequelize.define('Cinema', {
     type: DataTypes.STRING,
     allowNull: false,
     field: 'trailer'
+  },
+  categoryID: {
+    type: DataTypes.INTEGER,
+    allowNull: false,
+    field: 'id_category',
+    references: {
+      model: Category,
+      key: 'id_category'
+    }
   }
 }, {
   tableName: 'cinema',
@@ -50,11 +57,5 @@ const Cinema = sequelize.define('Cinema', {
 
 Cinema.belongsTo(Category, { foreignKey: 'categoryID', as: 'category' })
 Category.hasOne(Cinema, { foreignKey: 'categoryID' })
-
-Actor.belongsToMany(Cinema, { through: 'cinema_actor' })
-Cinema.belongsToMany(Actor, { through: 'cinema_actor', as: 'cast' })
-
-Genre.belongsToMany(Cinema, { through: 'cinema_genre' })
-Cinema.belongsToMany(Genre, { through: 'cinema_genre', as: 'genres' })
 
 export { Cinema }
