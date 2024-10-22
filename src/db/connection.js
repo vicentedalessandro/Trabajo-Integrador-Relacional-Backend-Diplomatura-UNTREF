@@ -13,18 +13,4 @@ const sequelize = new Sequelize(mysqlConfig.database, mysqlConfig.user, mysqlCon
   }
 })
 
-const testSequelizeAuth = () => {
-  sequelize.authenticate()
-    .then(() => {
-      console.log('Database connection successful.')
-    })
-    .catch(err => {
-      console.error('Error connecting to database:', err)
-    })
-    .finally(() => {
-      sequelize.close()
-      console.log('Database connection closed.')
-    })
-}
-
-export { sequelize, testSequelizeAuth }
+export { sequelize }

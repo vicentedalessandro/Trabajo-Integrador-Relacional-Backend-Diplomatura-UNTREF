@@ -8,6 +8,7 @@ const CinemaGenre = sequelize.define('CinemaGenre', {
     type: DataTypes.INTEGER,
     primaryKey: true,
     autoIncrement: false,
+    field: 'id_cinema',
     references: {
       model: Cinema,
       key: 'id_cinema'
@@ -17,6 +18,7 @@ const CinemaGenre = sequelize.define('CinemaGenre', {
     type: DataTypes.INTEGER,
     primaryKey: true,
     autoIncrement: false,
+    field: 'id_genre',
     references: {
       model: Genre,
       key: 'id_genre'
