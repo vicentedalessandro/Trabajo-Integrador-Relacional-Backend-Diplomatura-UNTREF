@@ -6,12 +6,12 @@ const Actor = sequelize.define('Actor', {
     type: DataTypes.INTEGER,
     primaryKey: true,
     autoIncrement: true,
-    field: 'id_actor'
+    field: 'actorID'
   },
   actorName: {
     type: DataTypes.STRING,
     allowNull: false,
-    field: 'actor_name'
+    field: 'actorName'
   }
 }, {
   tableName: 'actors',

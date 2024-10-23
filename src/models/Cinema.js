@@ -7,7 +7,7 @@ const Cinema = sequelize.define('Cinema', {
     type: DataTypes.INTEGER,
     primaryKey: true,
     autoIncrement: true,
-    field: 'id_cinema'
+    field: 'cinemaID'
   },
   poster: {
     type: DataTypes.STRING,
@@ -44,10 +44,10 @@ const Cinema = sequelize.define('Cinema', {
   categoryID: {
     type: DataTypes.INTEGER,
     allowNull: false,
-    field: 'id_category',
+    field: 'categoryID',
     references: {
       model: Category,
-      key: 'id_category'
+      key: 'categoryID'
     }
   }
 }, {

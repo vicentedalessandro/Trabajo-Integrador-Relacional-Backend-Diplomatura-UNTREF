@@ -6,12 +6,12 @@ const Category = sequelize.define('Category', {
     type: DataTypes.INTEGER,
     primaryKey: true,
     autoIncrement: true,
-    field: 'id_category'
+    field: 'categoryID'
   },
   categoryName: {
     type: DataTypes.STRING,
     allowNull: false,
-    field: 'category_name'
+    field: 'categoryName'
   }
 }, {
   tableName: 'categories',

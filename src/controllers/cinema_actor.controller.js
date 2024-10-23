@@ -7,7 +7,7 @@ const addActorsOnCinema = async (req, res) => {
   const { actors } = req.body
   try {
     await sequelize.transaction(async (t) => {
-      const cinema = await Cinema.findByPk(cinemaID, { transaction: t, attributes: ['id_cinema'] })
+      const cinema = await Cinema.findByPk(cinemaID, { transaction: t, attributes: ['cinemaID'] })
       if (!cinema) {
         return res.status(404).json({ message: 'ERROR 404 - Not Found: Cinema not found (add Actor on Cinema)' })
       }
@@ -24,7 +24,7 @@ const editActorOnCinema = async (req, res) => {
   const { cinemaID } = req.params
   const { actor } = req.body
   try {
-    const cinema = await Cinema.findByPk(cinemaID, { attributes: ['id_cinema'] })
+    const cinema = await Cinema.findByPk(cinemaID, { attributes: ['cinemaID'] })
     if (!cinema) {
       return res.status(404).json({ message: 'ERROR 404 - Not Found: Cinema not found (edit Actor on Cinema)' })
     }
@@ -39,7 +39,7 @@ const deleteActorsOnCinema = async (req, res) => {
   const { cinemaID } = req.params
   const { actors } = req.body
   try {
-    const cinema = await Cinema.findByPk(cinemaID, { attributes: ['id_cinema'] })
+    const cinema = await Cinema.findByPk(cinemaID, { attributes: ['cinemaID'] })
     if (!cinema) {
       return res.status(404).json({ message: 'ERROR 404 - Not Found: Cinema not found (delete Actors on Cinema)' })
     }

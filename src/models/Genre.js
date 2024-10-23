@@ -6,12 +6,12 @@ const Genre = sequelize.define('Genre', {
     type: DataTypes.INTEGER,
     primaryKey: true,
     autoIncrement: true,
-    field: 'id_genre'
+    field: 'genreID'
   },
   genreName: {
     type: DataTypes.STRING,
     allowNull: false,
-    field: 'genre_name'
+    field: 'genreName'
   }
 }, {
   tableName: 'genres',

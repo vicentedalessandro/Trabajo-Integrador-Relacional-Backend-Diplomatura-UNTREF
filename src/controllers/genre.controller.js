@@ -4,12 +4,12 @@ const getAllGenres = async (req, res) => {
   const { genreName } = req.query
   try {
     if (!genreName) {
-      const allGenres = await Genre.findAll({ attributes: ['id_genre', 'genre_name'] })
+      const allGenres = await Genre.findAll({ attributes: ['genreID', 'genreName'] })
       allGenres.length === 0
         ? res.status(404).json({ message: 'ERROR 404 - Not Found: get all Genres.' })
         : res.status(200).json(allGenres)
     } else {
-      const genre = await Genre.findOne({ where: { genreName }, attributes: ['id_genre', 'genre_name'] })
+      const genre = await Genre.findOne({ where: { genreName }, attributes: ['genreID', 'genreName'] })
       !genre
         ? res.status(404).json({ message: 'ERROR 404 - Not Found: get all Genres.' })
         : res.status(200).json({ message: 'Find one.' })
@@ -22,7 +22,7 @@ const getAllGenres = async (req, res) => {
 const getGenreByPK = async (req, res) => {
   const { genreID } = req.params
   try {
-    const genre = await Genre.findByPk(genreID, { attributes: ['id_genre', 'genre_name'] })
+    const genre = await Genre.findByPk(genreID, { attributes: ['genreID', 'genreName'] })
     !genre
       ? res.status(404).json({ message: 'ERROR 404 - Not Found: get Genre by PK.' })
       : res.status(200).json(genre)
@@ -34,7 +34,7 @@ const getGenreByPK = async (req, res) => {
 const createGenre = async (req, res) => {
   const { genreName } = req.body
   try {
-    const genreFound = await Genre.findOne({ where: { genreName }, attributes: ['id_genre'] })
+    const genreFound = await Genre.findOne({ where: { genreName }, attributes: ['genreID'] })
     if (genreFound) return res.status(409).json({ message: `Genre already exists with this name: ${genreName}` })
     const genre = await Genre.create({ genreName })
     res.status(201).json(genre)
@@ -47,12 +47,12 @@ const updateGenre = async (req, res) => {
   const { genreID } = req.params
   const { genreName } = req.body
   try {
-    const genreFound = await Genre.findOne({ where: { genreName }, attributes: ['id_genre'] })
+    const genreFound = await Genre.findOne({ where: { genreName }, attributes: ['genreID'] })
     if (genreFound) return res.status(409).json({ message: `Genre already exists with this name: ${genreName}` })
     const result = await Genre.update({ genreName }, { where: { genreID } })
     result === 0
       ? res.status(404).json({ message: 'ERROR 404 - Not Found: update Genre.' })
-      : res.status(200).json({ message: 'Genre Updated.', result })
+      : res.status(200).json({ message: 'Genre Updated.' })
   } catch (err) {
     res.status(500).json({ message: 'ERROR 500 - Internal Server Error: update Genre.', error: err.message })
   }
@@ -61,7 +61,7 @@ const updateGenre = async (req, res) => {
 const deleteGenre = async (req, res) => {
   const { genreID } = req.params
   try {
-    const genre = await Genre.findByPk(genreID, { attributes: ['id_genre'] })
+    const genre = await Genre.findByPk(genreID, { attributes: ['genreID'] })
     if (!genre) return res.status(404).json({ message: 'ERROR 404 - Not Found: get Actor by PK on delete Genre.' })
     await genre.destroy()
     res.status(204).json({ message: 'Genre Deleted.' })
