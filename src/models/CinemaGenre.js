@@ -30,10 +30,12 @@ const CinemaGenre = sequelize.define('CinemaGenre', {
 })
 
 Genre.belongsToMany(Cinema, {
-  through: CinemaGenre
+  through: CinemaGenre,
+  foreignKey: 'genreID'
 })
 Cinema.belongsToMany(Genre, {
   through: CinemaGenre,
+  foreignKey: 'cinemaID',
   as: 'genres'
 })
 

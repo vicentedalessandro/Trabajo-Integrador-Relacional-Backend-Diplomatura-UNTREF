@@ -30,10 +30,12 @@ const CinemaActor = sequelize.define('CinemaActor', {
 })
 
 Actor.belongsToMany(Cinema, {
-  through: CinemaActor
+  through: CinemaActor,
+  foreignKey: 'actorID'
 })
 Cinema.belongsToMany(Actor, {
   through: CinemaActor,
+  foreignKey: 'cinemaID',
   as: 'cast'
 })
 

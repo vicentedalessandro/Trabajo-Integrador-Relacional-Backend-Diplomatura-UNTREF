@@ -40,8 +40,8 @@ app.use('/actor', actorRouter)
 app.use('/category', categoryRouter)
 app.use('/genre', genreRouter)
 app.use('/cinema', cinemaRouter)
-app.use('/cinema_actor', cinemaActorRouter)
-app.use('/cinema_genre', cinemaGenreRouter)
+app.use('/cinema-actor', cinemaActorRouter)
+app.use('/cinema-genre', cinemaGenreRouter)
 
 // ERROR 404 - Not found
 app.use(notFound)

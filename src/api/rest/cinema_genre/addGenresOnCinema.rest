@@ -1,4 +1,4 @@
-POST http://localhost:3000/cinema_genre/1
+POST http://localhost:3000/cinema-genre/1
 content-type: application/json
 
 {
