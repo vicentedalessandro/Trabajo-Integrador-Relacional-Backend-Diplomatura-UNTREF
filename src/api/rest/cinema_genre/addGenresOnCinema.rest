@@ -2,5 +2,5 @@ POST http://localhost:3000/cinema-genre/1
 content-type: application/json
 
 {
-  "genres": [1,2]
+  "genres": [1]
 }

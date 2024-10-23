@@ -15,7 +15,7 @@ const getAllActors = async (req, res) => {
         : res.status(200).json({ message: 'Find one.' })
     }
   } catch (err) {
-    res.status(500).json({ message: 'ERROR 500 - Internal Server Error: get all Actors', error: err.message })
+    res.status(500).json({ message: 'ERROR 500 - Internal Server Error: get all Actors.', error: err.message })
   }
 }
 
@@ -35,7 +35,7 @@ const createActor = async (req, res) => {
   const { actorName } = req.body
   try {
     const actorFound = await Actor.findOne({ where: { actorName }, attributes: ['id_actor'] })
-    if (actorFound) return res.status(409).json({ message: `Actor already exists with this name: ${actorName}` })
+    if (actorFound) return res.status(409).json({ message: `ERROR 409 - Actor already exists with this name: ${actorName}` })
     const actor = await Actor.create({ actorName })
     res.status(201).json(actor)
   } catch (err) {

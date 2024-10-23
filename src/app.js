@@ -1,6 +1,7 @@
 import express from 'express'
 import morgan from 'morgan'
 import { loadEnvFile } from 'process'
+import { swaggerSpecs, swaggerUI } from './config/swagger.config.js'
 import { router as actorRouter } from './routes/actor.routes.js'
 import { router as categoryRouter } from './routes/category.routes.js'
 import { router as genreRouter } from './routes/genre.routes.js'
@@ -21,11 +22,12 @@ app.disable('x-powered-by')
 app.use(express.json())
 app.use('/public', express.static('./public'))
 app.use(morgan('dev'))
-app.use(sequelizeMiddleware)
 
-app.get('/', (req, res) => {
+app.get('/', async (req, res) => {
   res.status(200).json({ message: 'The server is listening...' })
 })
+
+app.use('/api-docs', swaggerUI.serve, swaggerUI.setup(swaggerSpecs))
 
 app.get('/unique-details', async (req, res) => {
   fetchFilms().then((data) => {
@@ -34,6 +36,8 @@ app.get('/unique-details', async (req, res) => {
     res.status(500).json(err)
   })
 })
+
+app.use(sequelizeMiddleware)
 
 // Routers
 app.use('/actor', actorRouter)

@@ -33,7 +33,9 @@ MVC - Model, View, Controller.
   "express": "^4.21.1",
   "morgan": "^1.10.0",
   "mysql2": "^3.11.3",
-  "sequelize": "^6.37.4"
+  "sequelize": "^6.37.4",
+  "swagger-jsdoc": "^6.2.8",
+  "swagger-ui-express": "^5.0.1"
 }
 ```
 
@@ -52,7 +54,7 @@ npm install
 o ejecuta las siguientes de comandos:
 ```
 npm init
-npm install express morgan mysql2 sequelize
+npm install express morgan mysql2 sequelize swagger-jsdoc swagger-ui-express
 npm install --save-dev standard
 ```
 
@@ -146,7 +148,7 @@ Una vez este "corriendo" el servidor, saldrá por consola el siguiente mensaje:
 ```
 Server running on port http://localhost:3000/
 ```
-Por defecto, el servidor se inicia en el puerto __3000__, pero puedes modificarlo mediante la varia de entorno __PORT__ que te nombramos al principio de la documentación.
+Por defecto, el servidor se inicia en el puerto __3000__, pero puedes modificarlo mediante la variable de entorno __PORT__ que te nombramos al principio de la documentación.
 
 ## Realizar una petición
 Una vez realices una solicitud al servidor, el siguiente __middleware__
@@ -155,4 +157,4 @@ app.use(sequelizeMiddleware)
 ```
 se encargara de crear las tablas en tu base de datos en caso de que no existan.
 
-Por otro lado, tendrás disponible los __endpoints__ en la url http://localhost:3000/ gracias a la librería swagger o en __./src/api/rest__ con los respectivos archivos __.rest__ divididos por feature.
+Por otro lado, tendrás disponible los __endpoints__ en la url http://localhost:3000/api-docs gracias a la librería swagger o en __./src/api/rest__ con los respectivos archivos __.rest__ divididos por feature.
