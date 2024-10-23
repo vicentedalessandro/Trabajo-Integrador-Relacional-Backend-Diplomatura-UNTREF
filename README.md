@@ -155,4 +155,4 @@ app.use(sequelizeMiddleware)
 ```
 se encargara de crear las tablas en tu base de datos en caso de que no existan.
 
-Por otro lado, tendrás disponible los __endpoints__ en la url http://localhost:3000/gracias a la librería swagger o en __./src/api/rest__ con los respectivos archivos __.rest__ divididos por feature.
+Por otro lado, tendrás disponible los __endpoints__ en la url http://localhost:3000/ gracias a la librería swagger o en __./src/api/rest__ con los respectivos archivos __.rest__ divididos por feature.
