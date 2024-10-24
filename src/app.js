@@ -33,7 +33,7 @@ app.get('/unique-details', async (req, res) => {
   fetchFilms().then((data) => {
     res.status(200).json(data)
   }).catch((err) => {
-    res.status(500).json(err)
+    res.status(500).json({ message: 'ERROR 500 - Internal Server Error: get all unique details.', error: err.message })
   })
 })
 

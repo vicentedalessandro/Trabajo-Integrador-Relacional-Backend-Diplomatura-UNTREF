@@ -1,3 +1,48 @@
+/**
+ * @swagger
+ * /unique-details:
+ *  get:
+ *    tags:
+ *      - Trailerflix
+ *    summary: Obtener detalles unicos
+ *    description: Endpoint para obtener todos los detalles unicos del archivo trailerflix.json servido en el archivo ./public.
+ *    responses:
+ *      200:
+ *        description: Devuelve un JSON correspondiente a los detalles unicos.
+ *        content:
+ *          application/json:
+ *            schema:
+ *              type: object
+ *              properties:
+ *                categories:
+ *                  type: array
+ *                  items:
+ *                    type: string
+ *                genres:
+ *                  type: array
+ *                  items:
+ *                    type: string
+ *                actors:
+ *                  type: array
+ *                  items:
+ *                    type: string
+ *              example:
+ *                categories: ["Serie", "Pelicula"]
+ *                genres: ["Documental", "Corto"]
+ *                actors: ["Pedro Pascal", "Emily Watson"]
+ *      500:
+ *        description: Error en el servidor.
+ *        content:
+ *          application/json:
+ *            schema:
+ *              type: object
+ *              properties:
+ *                message:
+ *                  type: string
+ *              example:
+ *                message: "ERROR 500 - Internal Server Error: get all unique details."
+ */
+
 // ACTORS START
 // ACTORS START
 // ACTORS START
