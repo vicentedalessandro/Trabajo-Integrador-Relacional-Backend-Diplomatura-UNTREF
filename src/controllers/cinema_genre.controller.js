@@ -13,7 +13,7 @@ const addGenresOnCinema = async (req, res) => {
         return res.status(404).json({ message: 'ERROR 404 - Not Found: Cinema not found (add Genres on Cinema).' })
       }
       const records = genres.map((genreID) => ({ cinemaID: parseInt(cinemaID), genreID }))
-      await CinemaGenre.bulkCreate(records, { transaction: t })
+      await CinemaGenre.bulkCreate(records, { transaction: t, ignoreDuplicates: true })
     })
     res.status(201).json({ message: 'Genres added successfully.' })
   } catch (err) {
@@ -29,7 +29,7 @@ const editGenreOnCinema = async (req, res) => {
     if (!cinema) {
       return res.status(404).json({ message: 'ERROR 404 - Not Found: Cinema not found (edit Genre on Cinema).' })
     }
-    await CinemaGenre.update({ genreID: genre.old }, { where: { cinemaID, genreID: genre.new } })
+    await CinemaGenre.update({ genreID: genre.new }, { where: { cinemaID, genreID: genre.old } })
     res.status(200).json({ message: 'Genre edit successfully from Cinema.' })
   } catch (err) {
     res.status(500).json({ message: 'ERROR 500 - Internal Server Error: edit Genre on Cinema.', error: err.message })

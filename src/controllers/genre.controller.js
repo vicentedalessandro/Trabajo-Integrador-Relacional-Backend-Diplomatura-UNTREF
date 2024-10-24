@@ -49,7 +49,7 @@ const updateGenre = async (req, res) => {
   try {
     const genreFound = await Genre.findOne({ where: { genreName }, attributes: ['genreID'] })
     if (genreFound) return res.status(409).json({ message: `Genre already exists with this name -> ${genreName}` })
-    const result = await Genre.update({ genreName }, { where: { genreID } })
+    const [result] = await Genre.update({ genreName }, { where: { genreID } })
     result === 0
       ? res.status(404).json({ message: 'ERROR 404 - Not Found: update Genre.' })
       : res.status(200).json({ message: 'Genre Updated.' })

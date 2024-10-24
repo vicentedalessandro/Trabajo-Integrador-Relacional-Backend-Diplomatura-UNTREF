@@ -213,6 +213,17 @@
  *                  type: string
  *              example:
  *                message: "Actor Updated."
+ *      404:
+ *        description: No se encontro el actor en la base de datos.
+ *        content:
+ *          application/json:
+ *            schema:
+ *              type: object
+ *              properties:
+ *                message:
+ *                  type: string
+ *              example:
+ *                message: "ERROR 404 - Not Found: update Actor."
  *      409:
  *        description: Ya existe un actor con ese nombre en la base de datos.
  *        content:
@@ -512,6 +523,17 @@
  *                  type: string
  *              example:
  *                message: "Category Updated."
+ *      404:
+ *        description: No se encontro la categoria en la base de datos.
+ *        content:
+ *          application/json:
+ *            schema:
+ *              type: object
+ *              properties:
+ *                message:
+ *                  type: string
+ *              example:
+ *                message: "ERROR 404 - Not Found: update Category."
  *      409:
  *        description: Ya existe una Categoria con ese nombre en la base de datos.
  *        content:
@@ -811,6 +833,17 @@
  *                  type: string
  *              example:
  *                message: "Genre Updated."
+ *      404:
+ *        description: No se encontro el genero en la base de datos.
+ *        content:
+ *          application/json:
+ *            schema:
+ *              type: object
+ *              properties:
+ *                message:
+ *                  type: string
+ *              example:
+ *                message: "ERROR 404 - Not Found: update Genre."
  *      409:
  *        description: Ya existe un genero con ese nombre en la base de datos.
  *        content:

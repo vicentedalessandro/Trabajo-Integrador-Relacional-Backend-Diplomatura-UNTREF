@@ -49,7 +49,8 @@ const updateActor = async (req, res) => {
   try {
     const actorFound = await Actor.findOne({ where: { actorName }, attributes: ['actorID'] })
     if (actorFound) return res.status(409).json({ message: `Actor already exists with this name -> ${actorName}` })
-    const result = await Actor.update({ actorName }, { where: { actorID } })
+    const [result] = await Actor.update({ actorName }, { where: { actorID } })
+    console.log(result)
     result === 0
       ? res.status(404).json({ message: 'ERROR 404 - Not Found: update Actor.' })
       : res.status(200).json({ message: 'Actor Updated.' })

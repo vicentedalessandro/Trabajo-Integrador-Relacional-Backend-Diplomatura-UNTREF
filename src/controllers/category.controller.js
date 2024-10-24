@@ -49,7 +49,7 @@ const updateCategory = async (req, res) => {
   try {
     const categoryFound = await Category.findOne({ where: { categoryName }, attributes: ['categoryID'] })
     if (categoryFound) return res.status(409).json({ message: `Category already exists with this name -> ${categoryName}` })
-    const result = await Category.update({ categoryName }, { where: { categoryID } })
+    const [result] = await Category.update({ categoryName }, { where: { categoryID } })
     result === 0
       ? res.status(404).json({ message: 'ERROR 404 - Not Found: update Category.' })
       : res.status(200).json({ message: 'Category Updated.' })

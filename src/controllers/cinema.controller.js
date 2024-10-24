@@ -58,7 +58,7 @@ const updateCinema = async (req, res) => {
   try {
     const categoryFound = await Category.findOne({ where: { categoryID }, attributes: ['categoryID'] })
     if (!categoryFound) return res.status(404).json({ message: `ERROR 404 - Not Found: Category not found on update Cinema -> ${categoryID}` })
-    const result = await Cinema.update({ poster, title, resume, seasons, duration, trailer, categoryID },
+    const [result] = await Cinema.update({ poster, title, resume, seasons, duration, trailer, categoryID },
       { where: { cinemaID } })
     result === 0
       ? res.status(404).json({ message: 'ERROR 404 - Not Found: update Cinema.' })

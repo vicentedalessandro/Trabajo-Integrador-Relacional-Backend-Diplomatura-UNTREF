@@ -28,7 +28,7 @@ const editActorOnCinema = async (req, res) => {
     if (!cinema) {
       return res.status(404).json({ message: 'ERROR 404 - Not Found: Cinema not found (edit Actor on Cinema).' })
     }
-    await CinemaActor.update({ actorID: actor.old }, { where: { cinemaID, actorID: actor.new } })
+    await CinemaActor.update({ actorID: actor.new }, { where: { cinemaID, actorID: actor.old } })
     res.status(200).json({ message: 'Actor edited successfully from Cinema.' })
   } catch (err) {
     res.status(500).json({ message: 'ERROR 500 - Internal Server Error: edit Actor on Cinema.', error: err.message })
