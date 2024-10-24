@@ -15,7 +15,7 @@ const getAllCategories = async (req, res) => {
         : res.status(200).json({ message: 'Find one.' })
     }
   } catch (err) {
-    res.status(500).json({ message: 'ERROR 500 - Internal Server Error: get all Categories', error: err.message })
+    res.status(500).json({ message: 'ERROR 500 - Internal Server Error: get all Categories.', error: err.message })
   }
 }
 
@@ -35,7 +35,7 @@ const createCategory = async (req, res) => {
   const { categoryName } = req.body
   try {
     const categoryFound = await Category.findOne({ where: { categoryName }, attributes: ['categoryID'] })
-    if (categoryFound) return res.status(409).json({ message: `Category already exists with this name: ${categoryName}` })
+    if (categoryFound) return res.status(409).json({ message: `Category already exists with this name -> ${categoryName}` })
     const category = await Category.create({ categoryName })
     res.status(201).json(category)
   } catch (err) {
@@ -48,7 +48,7 @@ const updateCategory = async (req, res) => {
   const { categoryName } = req.body
   try {
     const categoryFound = await Category.findOne({ where: { categoryName }, attributes: ['categoryID'] })
-    if (categoryFound) return res.status(409).json({ message: `Category already exists with this name: ${categoryName}` })
+    if (categoryFound) return res.status(409).json({ message: `Category already exists with this name -> ${categoryName}` })
     const result = await Category.update({ categoryName }, { where: { categoryID } })
     result === 0
       ? res.status(404).json({ message: 'ERROR 404 - Not Found: update Category.' })

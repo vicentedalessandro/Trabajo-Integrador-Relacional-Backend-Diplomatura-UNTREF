@@ -17,7 +17,7 @@ const getAllCinema = async (req, res) => {
       ? res.status(404).json({ message: 'ERROR 404 - Not Found: get all Cinema.' })
       : res.status(200).json(allCinema)
   } catch (err) {
-    res.status(500).json({ message: 'ERROR 500 - Internal Server Error: get all Cinema', error: err.message })
+    res.status(500).json({ message: 'ERROR 500 - Internal Server Error: get all Cinema.', error: err.message })
   }
 }
 

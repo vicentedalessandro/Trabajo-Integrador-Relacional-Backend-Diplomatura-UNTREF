@@ -35,7 +35,7 @@ const createActor = async (req, res) => {
   const { actorName } = req.body
   try {
     const actorFound = await Actor.findOne({ where: { actorName }, attributes: ['actorID'] })
-    if (actorFound) return res.status(409).json({ message: `ERROR 409 - Actor already exists with this name: ${actorName}` })
+    if (actorFound) return res.status(409).json({ message: `ERROR 409 - Actor already exists with this name -> ${actorName}` })
     const actor = await Actor.create({ actorName })
     res.status(201).json(actor)
   } catch (err) {
@@ -48,7 +48,7 @@ const updateActor = async (req, res) => {
   const { actorName } = req.body
   try {
     const actorFound = await Actor.findOne({ where: { actorName }, attributes: ['actorID'] })
-    if (actorFound) return res.status(409).json({ message: `Actor already exists with this name: ${actorName}` })
+    if (actorFound) return res.status(409).json({ message: `Actor already exists with this name -> ${actorName}` })
     const result = await Actor.update({ actorName }, { where: { actorID } })
     result === 0
       ? res.status(404).json({ message: 'ERROR 404 - Not Found: update Actor.' })

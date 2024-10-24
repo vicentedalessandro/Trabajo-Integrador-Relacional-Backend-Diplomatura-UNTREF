@@ -15,7 +15,7 @@ const getAllGenres = async (req, res) => {
         : res.status(200).json({ message: 'Find one.' })
     }
   } catch (err) {
-    res.status(500).json({ message: 'ERROR 500 - Internal Server Error: get all Genres', error: err.message })
+    res.status(500).json({ message: 'ERROR 500 - Internal Server Error: get all Genres.', error: err.message })
   }
 }
 
@@ -35,7 +35,7 @@ const createGenre = async (req, res) => {
   const { genreName } = req.body
   try {
     const genreFound = await Genre.findOne({ where: { genreName }, attributes: ['genreID'] })
-    if (genreFound) return res.status(409).json({ message: `Genre already exists with this name: ${genreName}` })
+    if (genreFound) return res.status(409).json({ message: `Genre already exists with this name -> ${genreName}` })
     const genre = await Genre.create({ genreName })
     res.status(201).json(genre)
   } catch (err) {
@@ -48,7 +48,7 @@ const updateGenre = async (req, res) => {
   const { genreName } = req.body
   try {
     const genreFound = await Genre.findOne({ where: { genreName }, attributes: ['genreID'] })
-    if (genreFound) return res.status(409).json({ message: `Genre already exists with this name: ${genreName}` })
+    if (genreFound) return res.status(409).json({ message: `Genre already exists with this name -> ${genreName}` })
     const result = await Genre.update({ genreName }, { where: { genreID } })
     result === 0
       ? res.status(404).json({ message: 'ERROR 404 - Not Found: update Genre.' })

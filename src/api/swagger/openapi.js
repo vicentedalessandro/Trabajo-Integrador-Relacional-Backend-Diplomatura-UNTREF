@@ -42,7 +42,7 @@
  *              example:
  *                message: "ERROR 404 - Not Found: get all Actors."
  *      500:
- *        description: Error en el servidor
+ *        description: Error en el servidor.
  *        content:
  *          application/json:
  *            schema:
@@ -98,7 +98,7 @@
  *              example:
  *                message: "ERROR 404 - Not Found: get Actor by PK."
  *      500:
- *        description: Error en el servidor
+ *        description: Error en el servidor.
  *        content:
  *          application/json:
  *            schema:
@@ -158,9 +158,9 @@
  *                message:
  *                  type: string
  *              example:
- *                message: "ERROR 409 - Actor already exists with this name: <actor_name>"
+ *                message: "ERROR 409 - Actor already exists with this name -> <actor_name>"
  *      500:
- *        description: Error en el servidor
+ *        description: Error en el servidor.
  *        content:
  *          application/json:
  *            schema:
@@ -203,7 +203,7 @@
  *            actorName: Pedro Pascal
  *    responses:
  *      200:
- *        description: Actor actualizado
+ *        description: Actor actualizado.
  *        content:
  *          application/json:
  *            schema:
@@ -223,9 +223,9 @@
  *                message:
  *                  type: string
  *              example:
- *                message: "ERROR 409 - Actor already exists with this name: <actor_name>"
+ *                message: "ERROR 409 - Actor already exists with this name -> <actor_name>"
  *      500:
- *        description: Error en el servidor
+ *        description: Error en el servidor.
  *        content:
  *          application/json:
  *            schema:
@@ -256,7 +256,7 @@
  *          format: int64
  *    responses:
  *      204:
- *        description: Actor eliminado
+ *        description: Actor eliminado.
  *        content:
  *          application/json:
  *            schema:
@@ -278,7 +278,7 @@
  *              example:
  *                message: "ERROR 404 - Not Found: get Actor by PK on delete Actor."
  *      500:
- *        description: Error en el servidor
+ *        description: Error en el servidor.
  *        content:
  *          application/json:
  *            schema:
@@ -341,7 +341,7 @@
  *              example:
  *                message: "ERROR 404 - Not Found: get all Categories."
  *      500:
- *        description: Error en el servidor
+ *        description: Error en el servidor.
  *        content:
  *          application/json:
  *            schema:
@@ -397,7 +397,7 @@
  *              example:
  *                message: "ERROR 404 - Not Found: get Category by PK."
  *      500:
- *        description: Error en el servidor
+ *        description: Error en el servidor.
  *        content:
  *          application/json:
  *            schema:
@@ -457,9 +457,9 @@
  *                message:
  *                  type: string
  *              example:
- *                message: "ERROR 409 - Category already exists with this name: <category_name>"
+ *                message: "ERROR 409 - Category already exists with this name -> <category_name>"
  *      500:
- *        description: Error en el servidor
+ *        description: Error en el servidor.
  *        content:
  *          application/json:
  *            schema:
@@ -502,7 +502,7 @@
  *            categoryName: Serie
  *    responses:
  *      200:
- *        description: Categoria actualizada
+ *        description: Categoria actualizada.
  *        content:
  *          application/json:
  *            schema:
@@ -522,9 +522,9 @@
  *                message:
  *                  type: string
  *              example:
- *                message: "ERROR 409 - Category already exists with this name: <category_name>"
+ *                message: "ERROR 409 - Category already exists with this name -> <category_name>"
  *      500:
- *        description: Error en el servidor
+ *        description: Error en el servidor.
  *        content:
  *          application/json:
  *            schema:
@@ -555,7 +555,7 @@
  *          format: int64
  *    responses:
  *      204:
- *        description: Categoria eliminada
+ *        description: Categoria eliminada.
  *        content:
  *          application/json:
  *            schema:
@@ -577,7 +577,7 @@
  *              example:
  *                message: "ERROR 404 - Not Found: get Category by PK on delete Category."
  *      500:
- *        description: Error en el servidor
+ *        description: Error en el servidor.
  *        content:
  *          application/json:
  *            schema:
@@ -640,7 +640,7 @@
  *              example:
  *                message: "ERROR 404 - Not Found: get all Genres."
  *      500:
- *        description: Error en el servidor
+ *        description: Error en el servidor.
  *        content:
  *          application/json:
  *            schema:
@@ -696,7 +696,7 @@
  *              example:
  *                message: "ERROR 404 - Not Found: get Genre by PK."
  *      500:
- *        description: Error en el servidor
+ *        description: Error en el servidor.
  *        content:
  *          application/json:
  *            schema:
@@ -756,9 +756,9 @@
  *                message:
  *                  type: string
  *              example:
- *                message: "ERROR 409 - Genre already exists with this name: <genre_name>"
+ *                message: "ERROR 409 - Genre already exists with this name -> <genre_name>"
  *      500:
- *        description: Error en el servidor
+ *        description: Error en el servidor.
  *        content:
  *          application/json:
  *            schema:
@@ -801,7 +801,7 @@
  *            genreName: Documental
  *    responses:
  *      200:
- *        description: Genero actualizado
+ *        description: Genero actualizado.
  *        content:
  *          application/json:
  *            schema:
@@ -821,9 +821,9 @@
  *                message:
  *                  type: string
  *              example:
- *                message: "ERROR 409 - Genre already exists with this name: <genre_name>"
+ *                message: "ERROR 409 - Genre already exists with this name -> <genre_name>"
  *      500:
- *        description: Error en el servidor
+ *        description: Error en el servidor.
  *        content:
  *          application/json:
  *            schema:
@@ -854,7 +854,7 @@
  *          format: int64
  *    responses:
  *      204:
- *        description: Genero eliminado
+ *        description: Genero eliminado.
  *        content:
  *          application/json:
  *            schema:
@@ -876,7 +876,7 @@
  *              example:
  *                message: "ERROR 404 - Not Found: get Genre by PK on delete Genre."
  *      500:
- *        description: Error en el servidor
+ *        description: Error en el servidor.
  *        content:
  *          application/json:
  *            schema:
@@ -974,7 +974,7 @@
  *              example:
  *                message: "ERROR 404 - Not Found: get all Cinema."
  *      500:
- *        description: Error en el servidor
+ *        description: Error en el servidor.
  *        content:
  *          application/json:
  *            schema:
@@ -1065,7 +1065,7 @@
  *              example:
  *                message: "ERROR 404 - Not Found: get Cinema by PK."
  *      500:
- *        description: Error en el servidor
+ *        description: Error en el servidor.
  *        content:
  *          application/json:
  *            schema:
@@ -1167,7 +1167,7 @@
  *              example:
  *                message: "ERROR 404 - Not Found: Category not found (create Cinema) -> <categoryName>"
  *      500:
- *        description: Error en el servidor
+ *        description: Error en el servidor.
  *        content:
  *          application/json:
  *            schema:
@@ -1232,7 +1232,7 @@
  *            categoryID: 1
  *    responses:
  *      200:
- *        description: Cinematografía actualizada
+ *        description: Cinematografía actualizada.
  *        content:
  *          application/json:
  *            schema:
@@ -1261,7 +1261,7 @@
  *                  value:
  *                    message: "ERROR 404 - Not Found: update Cinema."
  *      500:
- *        description: Error en el servidor
+ *        description: Error en el servidor.
  *        content:
  *          application/json:
  *            schema:
@@ -1292,7 +1292,7 @@
  *          format: int64
  *    responses:
  *      204:
- *        description: Cinematografía eliminada
+ *        description: Cinematografía eliminada.
  *        content:
  *          application/json:
  *            schema:
@@ -1314,7 +1314,7 @@
  *              example:
  *                message: "ERROR 404 - Not Found: get cinema by PK on delete Cinema."
  *      500:
- *        description: Error en el servidor
+ *        description: Error en el servidor.
  *        content:
  *          application/json:
  *            schema:
@@ -1332,3 +1332,445 @@
 // CINEMA END
 // CINEMA END
 // CINEMA END
+
+// CINEMA_ACTORS START
+// CINEMA_ACTORS START
+// CINEMA_ACTORS START
+// CINEMA_ACTORS START
+// CINEMA_ACTORS START
+// CINEMA_ACTORS START
+
+/**
+ * @swagger
+ * /cinema-actor/{cinemaID}:
+ *  post:
+ *    tags:
+ *      - Cinematografías -> Actores
+ *    summary: Añadir actores a una cinematografía
+ *    description: Endpoint para añadir actores a una cinematografía en la base de datos.
+ *    consumes:
+ *      - application/json
+ *    parameters:
+ *      - in: path
+ *        name: cinemaID
+ *        description: cinema identification
+ *        required: true
+ *        schema:
+ *          type: integer
+ *          format: int64
+ *      - in: body
+ *        name: cinema actors body
+ *        description: actors to add on cinema
+ *        schema:
+ *          type: object
+ *          required:
+ *            - actors
+ *          properties:
+ *            actors:
+ *              type: array
+ *              items:
+ *                type: integer
+ *          example:
+ *            actors: [1, 2, 3]
+ *    responses:
+ *      201:
+ *        description: Actores añadidos exitosamente en la cinematografía.
+ *        content:
+ *          application/json:
+ *            schema:
+ *              type: object
+ *              properties:
+ *                message:
+ *                  type: string
+ *              example:
+ *                message: "Actors added successfully from Cinema."
+ *      404:
+ *        description: No se encontro la cinematografía en la base de datos.
+ *        content:
+ *          application/json:
+ *            schema:
+ *              type: object
+ *              properties:
+ *                message:
+ *                  type: string
+ *              example:
+ *                message: "ERROR 404 - Not Found: Cinema not found (add Actors on Cinema)."
+ *      500:
+ *        description: Error en el servidor.
+ *        content:
+ *          application/json:
+ *            schema:
+ *              type: object
+ *              properties:
+ *                message:
+ *                  type: string
+ *              example:
+ *                message: "ERROR 500 - Internal Server Error: add Actors on Cinema."
+ */
+
+/**
+ * @swagger
+ * /cinema-actor/{cinemaID}:
+ *  put:
+ *    tags:
+ *      - Cinematografías -> Actores
+ *    summary: Modificar un actor añadido a una cinematografía
+ *    description: Endpoint para modificar un actor añadido a una cinematografía en la base de datos.
+ *    consumes:
+ *      - application/json
+ *    parameters:
+ *      - in: path
+ *        name: cinemaID
+ *        description: cinema identification
+ *        required: true
+ *        schema:
+ *          type: integer
+ *          format: int64
+ *      - in: body
+ *        name: cinema actor body
+ *        description: actor to edit on cinema
+ *        schema:
+ *          type: object
+ *          required:
+ *            - actor
+ *          properties:
+ *            actor:
+ *              type: object
+ *              properties:
+ *                old: integer
+ *                new: integer
+ *          example:
+ *            actor:
+ *              old: 1
+ *              new: 2
+ *    responses:
+ *      200:
+ *        description: Actor modificado exitosamente en la cinematografía.
+ *        content:
+ *          application/json:
+ *            schema:
+ *              type: object
+ *              properties:
+ *                message:
+ *                  type: string
+ *              example:
+ *                message: "Actor edited successfully from Cinema."
+ *      404:
+ *        description: No se encontro la cinematografía en la base de datos.
+ *        content:
+ *          application/json:
+ *            schema:
+ *              type: object
+ *              properties:
+ *                message:
+ *                  type: string
+ *              example:
+ *                message: "ERROR 404 - Not Found: Cinema not found (edit Actor on Cinema)."
+ *      500:
+ *        description: Error en el servidor.
+ *        content:
+ *          application/json:
+ *            schema:
+ *              type: object
+ *              properties:
+ *                message:
+ *                  type: string
+ *              example:
+ *                message: "ERROR 500 - Internal Server Error: edit Actor on Cinema."
+ */
+
+/**
+ * @swagger
+ * /cinema-actor/{cinemaID}:
+ *  delete:
+ *    tags:
+ *      - Cinematografías -> Actores
+ *    summary: Eliminar actores añadidos a una cinematografía
+ *    description: Endpoint para eliminar actores añadidos a una cinematografía en la base de datos.
+ *    consumes:
+ *      - application/json
+ *    parameters:
+ *      - in: path
+ *        name: cinemaID
+ *        description: cinema identification
+ *        required: true
+ *        schema:
+ *          type: integer
+ *          format: int64
+ *      - in: body
+ *        name: cinema actors body
+ *        description: actors to add on cinema
+ *        schema:
+ *          type: object
+ *          required:
+ *            - actors
+ *          properties:
+ *            actors:
+ *              type: array
+ *              items:
+ *                type: integer
+ *          example:
+ *            actors: [1, 2, 3]
+ *    responses:
+ *      204:
+ *        description: Actores eliminados exitosamente en la cinematografía.
+ *        content:
+ *          application/json:
+ *            schema:
+ *              type: object
+ *              properties:
+ *                message:
+ *                  type: string
+ *              example:
+ *                message: "Actors deleted successfully from Cinema."
+ *      404:
+ *        description: No se encontro la cinematografía en la base de datos.
+ *        content:
+ *          application/json:
+ *            schema:
+ *              type: object
+ *              properties:
+ *                message:
+ *                  type: string
+ *              example:
+ *                message: "ERROR 404 - Not Found: Cinema not found (delete Actors on Cinema)."
+ *      500:
+ *        description: Error en el servidor.
+ *        content:
+ *          application/json:
+ *            schema:
+ *              type: object
+ *              properties:
+ *                message:
+ *                  type: string
+ *              example:
+ *                message: "ERROR 500 - Internal Server Error: delete Actors on Cinema."
+ */
+
+// CINEMA_ACTORS END
+// CINEMA_ACTORS END
+// CINEMA_ACTORS END
+// CINEMA_ACTORS END
+// CINEMA_ACTORS END
+// CINEMA_ACTORS END
+
+// CINEMA_GENRES START
+// CINEMA_GENRES START
+// CINEMA_GENRES START
+// CINEMA_GENRES START
+// CINEMA_GENRES START
+// CINEMA_GENRES START
+
+/**
+ * @swagger
+ * /cinema-genre/{cinemaID}:
+ *  post:
+ *    tags:
+ *      - Cinematografías -> Generos
+ *    summary: Añadir generos a una cinematografía
+ *    description: Endpoint para añadir generos a una cinematografía en la base de datos.
+ *    consumes:
+ *      - application/json
+ *    parameters:
+ *      - in: path
+ *        name: cinemaID
+ *        description: cinema identification
+ *        required: true
+ *        schema:
+ *          type: integer
+ *          format: int64
+ *      - in: body
+ *        name: cinema genres body
+ *        description: genres to add on cinema
+ *        schema:
+ *          type: object
+ *          required:
+ *            - genres
+ *          properties:
+ *            genres:
+ *              type: array
+ *              items:
+ *                type: integer
+ *          example:
+ *            genres: [1, 2, 3]
+ *    responses:
+ *      201:
+ *        description: Generos añadidos exitosamente en la cinematografía.
+ *        content:
+ *          application/json:
+ *            schema:
+ *              type: object
+ *              properties:
+ *                message:
+ *                  type: string
+ *              example:
+ *                message: "Genres added successfully from Cinema."
+ *      404:
+ *        description: No se encontro la cinematografía en la base de datos.
+ *        content:
+ *          application/json:
+ *            schema:
+ *              type: object
+ *              properties:
+ *                message:
+ *                  type: string
+ *              example:
+ *                message: "ERROR 404 - Not Found: Cinema not found (add Genres on Cinema)."
+ *      500:
+ *        description: Error en el servidor.
+ *        content:
+ *          application/json:
+ *            schema:
+ *              type: object
+ *              properties:
+ *                message:
+ *                  type: string
+ *              example:
+ *                message: "ERROR 500 - Internal Server Error: add Genres on Cinema."
+ */
+
+/**
+ * @swagger
+ * /cinema-genre/{cinemaID}:
+ *  put:
+ *    tags:
+ *      - Cinematografías -> Generos
+ *    summary: Modificar un genero añadido a una cinematografía
+ *    description: Endpoint para modificar un genero añadido a una cinematografía en la base de datos.
+ *    consumes:
+ *      - application/json
+ *    parameters:
+ *      - in: path
+ *        name: cinemaID
+ *        description: cinema identification
+ *        required: true
+ *        schema:
+ *          type: integer
+ *          format: int64
+ *      - in: body
+ *        name: cinema genre body
+ *        description: genre to edit on cinema
+ *        schema:
+ *          type: object
+ *          required:
+ *            - genre
+ *          properties:
+ *            genre:
+ *              type: object
+ *              properties:
+ *                old: integer
+ *                new: integer
+ *          example:
+ *            genre:
+ *              old: 1
+ *              new: 2
+ *    responses:
+ *      200:
+ *        description: Genero modificado exitosamente en la cinematografía.
+ *        content:
+ *          application/json:
+ *            schema:
+ *              type: object
+ *              properties:
+ *                message:
+ *                  type: string
+ *              example:
+ *                message: "Genre edited successfully from Cinema."
+ *      404:
+ *        description: No se encontro la cinematografía en la base de datos.
+ *        content:
+ *          application/json:
+ *            schema:
+ *              type: object
+ *              properties:
+ *                message:
+ *                  type: string
+ *              example:
+ *                message: "ERROR 404 - Not Found: Cinema not found (edit Genre on Cinema)."
+ *      500:
+ *        description: Error en el servidor.
+ *        content:
+ *          application/json:
+ *            schema:
+ *              type: object
+ *              properties:
+ *                message:
+ *                  type: string
+ *              example:
+ *                message: "ERROR 500 - Internal Server Error: edit Genre on Cinema."
+ */
+
+/**
+ * @swagger
+ * /cinema-genre/{cinemaID}:
+ *  delete:
+ *    tags:
+ *      - Cinematografías -> Generos
+ *    summary: Eliminar generos añadidos a una cinematografía
+ *    description: Endpoint para eliminar generos añadidos a una cinematografía en la base de datos.
+ *    consumes:
+ *      - application/json
+ *    parameters:
+ *      - in: path
+ *        name: cinemaID
+ *        description: cinema identification
+ *        required: true
+ *        schema:
+ *          type: integer
+ *          format: int64
+ *      - in: body
+ *        name: cinema genres body
+ *        description: genres to delete on cinema
+ *        schema:
+ *          type: object
+ *          required:
+ *            - genres
+ *          properties:
+ *            genres:
+ *              type: array
+ *              items:
+ *                type: integer
+ *          example:
+ *            genres: [1, 2, 3]
+ *    responses:
+ *      204:
+ *        description: Generos eliminados exitosamente en la cinematografía.
+ *        content:
+ *          application/json:
+ *            schema:
+ *              type: object
+ *              properties:
+ *                message:
+ *                  type: string
+ *              example:
+ *                message: "Genres deleted successfully from Cinema."
+ *      404:
+ *        description: No se encontro la cinematografía en la base de datos.
+ *        content:
+ *          application/json:
+ *            schema:
+ *              type: object
+ *              properties:
+ *                message:
+ *                  type: string
+ *              example:
+ *                message: "ERROR 404 - Not Found: Cinema not found (delete Genres on Cinema)."
+ *      500:
+ *        description: Error en el servidor.
+ *        content:
+ *          application/json:
+ *            schema:
+ *              type: object
+ *              properties:
+ *                message:
+ *                  type: string
+ *              example:
+ *                message: "ERROR 500 - Internal Server Error: delete Genres on Cinema."
+ */
+
+// CINEMA_GENRES END
+// CINEMA_GENRES END
+// CINEMA_GENRES END
+// CINEMA_GENRES END
+// CINEMA_GENRES END
+// CINEMA_GENRES END
