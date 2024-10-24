@@ -136,6 +136,8 @@ Esta es una tabla intermedia que sirve como relación n:m para las tablas cinema
 | id_cinema (PK)          | int             | Llave primaria que referencia a "cinema"  |
 | id_genre (PK)           | int             | Llave primaria que referencia a "genre"   |
 
+![Tableros con Historias de Usuarios, Backlog y Sprints](./public/Diagram.png)
+
 ## Iniciar el servidor
 Para iniciar el servidor tienes varias opciones por consola:
 ```

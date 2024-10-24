@@ -894,3 +894,441 @@
 // GENRES END
 // GENRES END
 // GENRES END
+
+// CINEMA START
+// CINEMA START
+// CINEMA START
+// CINEMA START
+// CINEMA START
+// CINEMA START
+
+/**
+ * @swagger
+ * /cinema:
+ *  get:
+ *    tags:
+ *      - Cinematografías
+ *    summary: Obtener todas las cinematografías
+ *    description: Endpoint para obtener todas las cinematografías registradas en la base de datos.
+ *    responses:
+ *      200:
+ *        description: Devuelve un JSON correspondiente a las cinematografías.
+ *        content:
+ *          application/json:
+ *            schema:
+ *              type: array
+ *              items:
+ *                type: object
+ *                properties:
+ *                  cinemaID:
+ *                    type: integer
+ *                  poster:
+ *                    type: string
+ *                  title:
+ *                    type: string
+ *                  resume:
+ *                    type: string
+ *                  seasons:
+ *                    type: string
+ *                  duration:
+ *                    type: string
+ *                  trailer:
+ *                    type: string
+ *                  category:
+ *                    type: object
+ *                    properties:
+ *                      categoryID:
+ *                        type: integer
+ *                      categoryName:
+ *                        type: string
+ *                  cast:
+ *                    type: array
+ *                    items:
+ *                      type: string
+ *                  genres:
+ *                    type: array
+ *                    items:
+ *                      type: string
+ *                example:
+ *                  cinemaID: 1
+ *                  poster: ./posters/3.jpg
+ *                  title: The Mandalorian
+ *                  resume: Ambientada tras la caída del Imperio y antes de la aparición de la Primera Orden, la Serie sigue los pasos de un pistolero solitario en las aventuras que protagoniza en los confines de la galaxia, donde no alcanza la autoridad de la Nueva República.
+ *                  seasons: "2"
+ *                  duration: N/A
+ *                  trailer: "https://www.youtube.com/embed/aOC8E8z_ifw"
+ *                  category:
+ *                    categoryID: 1
+ *                    categoryName: Serie
+ *                  cast: ["Pedro Pascal", "Carl Weathers", "Misty Rosas", "Chris Bartlett", "Rio Hackford", "Giancarlo Esposito"]
+ *                  genres: ["Sci-Fi", "Fantasía", "Acción"]
+ *      404:
+ *        description: No se encontraron cinematografías en la base de datos.
+ *        content:
+ *          application/json:
+ *            schema:
+ *              type: object
+ *              properties:
+ *                message:
+ *                  type: string
+ *              example:
+ *                message: "ERROR 404 - Not Found: get all Cinema."
+ *      500:
+ *        description: Error en el servidor
+ *        content:
+ *          application/json:
+ *            schema:
+ *              type: object
+ *              properties:
+ *                message:
+ *                  type: string
+ *              example:
+ *                message: "ERROR 500 - Internal Server Error: get all Cinema."
+ */
+
+/**
+ * @swagger
+ * /cinema/{cinemaID}:
+ *  get:
+ *    tags:
+ *      - Cinematografías
+ *    summary: Obtener cinematografía por su PK
+ *    description: Endpoint para obtener una cinematografía a traves de su PK.
+ *    operationId: "getCinemaByPK"
+ *    parameters:
+ *      - in: path
+ *        name: cinemaID
+ *        description: cinema identification
+ *        required: true
+ *        schema:
+ *          type: integer
+ *          format: int64
+ *    responses:
+ *      200:
+ *        description: Devuelve un JSON correspondiente a la PK de la cinematografía.
+ *        content:
+ *          application/json:
+ *            schema:
+ *              type: object
+ *              properties:
+ *                cinemaID:
+ *                  type: integer
+ *                poster:
+ *                  type: string
+ *                title:
+ *                  type: string
+ *                resume:
+ *                  type: string
+ *                seasons:
+ *                  type: string
+ *                duration:
+ *                  type: string
+ *                trailer:
+ *                  type: string
+ *                category:
+ *                  type: object
+ *                  properties:
+ *                    categoryID:
+ *                      type: integer
+ *                    categoryName:
+ *                      type: string
+ *                cast:
+ *                  type: array
+ *                  items:
+ *                    type: string
+ *                genres:
+ *                  type: array
+ *                  items:
+ *                    type: string
+ *              example:
+ *                cinemaID: 1
+ *                poster: ./posters/3.jpg
+ *                title: The Mandalorian
+ *                resume: Ambientada tras la caída del Imperio y antes de la aparición de la Primera Orden, la Serie sigue los pasos de un pistolero solitario en las aventuras que protagoniza en los confines de la galaxia, donde no alcanza la autoridad de la Nueva República.
+ *                seasons: "2"
+ *                duration: N/A
+ *                trailer: "https://www.youtube.com/embed/aOC8E8z_ifw"
+ *                category:
+ *                  categoryID: 1
+ *                  categoryName: Serie
+ *                cast: ["Pedro Pascal", "Carl Weathers", "Misty Rosas", "Chris Bartlett", "Rio Hackford", "Giancarlo Esposito"]
+ *                genres: ["Sci-Fi", "Fantasía", "Acción"]
+ *      404:
+ *        description: No se encontro la cinematografía en la base de datos.
+ *        content:
+ *          application/json:
+ *            schema:
+ *              type: object
+ *              properties:
+ *                message:
+ *                  type: string
+ *              example:
+ *                message: "ERROR 404 - Not Found: get Cinema by PK."
+ *      500:
+ *        description: Error en el servidor
+ *        content:
+ *          application/json:
+ *            schema:
+ *              type: object
+ *              properties:
+ *                message:
+ *                  type: string
+ *              example:
+ *                message: "ERROR 500 - Internal Server Error: get Cinema by PK."
+ */
+
+/**
+ * @swagger
+ * /cinema:
+ *  post:
+ *    tags:
+ *      - Cinematografías
+ *    summary: Registrar una cinematografía
+ *    description: Endpoint para registrar una cinematografía en la base de datos.
+ *    consumes:
+ *      - application/json
+ *    parameters:
+ *      - in: body
+ *        name: cinema body
+ *        description: cinema to create
+ *        schema:
+ *          type: object
+ *          required:
+ *            - poster
+ *            - title
+ *            - resume
+ *            - trailer
+ *            - categoryID
+ *          properties:
+ *            poster:
+ *              type: string
+ *            title:
+ *              type: string
+ *            resume:
+ *              type: string
+ *            seasons:
+ *              type: string
+ *            duration:
+ *              type: string
+ *            trailer:
+ *              type: string
+ *            categoryID:
+ *              type: integer
+ *          example:
+ *            poster: ./posters/3.jpg
+ *            title: The Mandalorian
+ *            resume: Ambientada tras la caída del Imperio y antes de la aparición de la Primera Orden, la Serie sigue los pasos de un pistolero solitario en las aventuras que protagoniza en los confines de la galaxia, donde no alcanza la autoridad de la Nueva República.
+ *            seasons: "2"
+ *            duration: N/A
+ *            trailer: "https://www.youtube.com/embed/aOC8E8z_ifw"
+ *            categoryID: 1
+ *    responses:
+ *      201:
+ *        description: Devuelve un JSON correspondiente a la cinematografía registrada.
+ *        content:
+ *          application/json:
+ *            schema:
+ *              type: object
+ *            properties:
+ *              cinemaID:
+ *                type: integer
+ *              poster:
+ *                type: string
+ *              title:
+ *                type: string
+ *              resume:
+ *                type: string
+ *              seasons:
+ *                type: string
+ *              duration:
+ *                type: string
+ *              trailer:
+ *                type: string
+ *              categoryID:
+ *                type: integer
+ *            example:
+ *              cinemaID: 1
+ *              poster: ./posters/3.jpg
+ *              title: The Mandalorian
+ *              resume: Ambientada tras la caída del Imperio y antes de la aparición de la Primera Orden, la Serie sigue los pasos de un pistolero solitario en las aventuras que protagoniza en los confines de la galaxia, donde no alcanza la autoridad de la Nueva República.
+ *              seasons: "2"
+ *              duration: N/A
+ *              trailer: "https://www.youtube.com/embed/aOC8E8z_ifw"
+ *              categoryID: 1
+ *      404:
+ *        description: No se encontro la categoria en la base de datos.
+ *        content:
+ *          application/json:
+ *            schema:
+ *              type: object
+ *              properties:
+ *                message:
+ *                  type: string
+ *              example:
+ *                message: "ERROR 404 - Not Found: Category not found (create Cinema) -> <categoryName>"
+ *      500:
+ *        description: Error en el servidor
+ *        content:
+ *          application/json:
+ *            schema:
+ *              type: object
+ *              properties:
+ *                message:
+ *                  type: string
+ *              example:
+ *                message: "ERROR 500 - Internal Server Error: create Cinema."
+ */
+
+/**
+ * @swagger
+ * /cinema/{cinemaID}:
+ *  put:
+ *    tags:
+ *      - Cinematografías
+ *    summary: Modificar una cinematografía
+ *    description: Endpoint para modificar una cinematografía en la base de datos.
+ *    operationId: "updateCinema"
+ *    parameters:
+ *      - in: path
+ *        name: cinemaID
+ *        description: cinema identification
+ *        required: true
+ *        schema:
+ *          type: integer
+ *          format: int64
+ *      - in: body
+ *        name: cinema body
+ *        description: cinema to update
+ *        schema:
+ *          type: object
+ *          required:
+ *            - poster
+ *            - title
+ *            - resume
+ *            - trailer
+ *            - categoryID
+ *          properties:
+ *            poster:
+ *              type: string
+ *            title:
+ *              type: string
+ *            resume:
+ *              type: string
+ *            seasons:
+ *              type: string
+ *            duration:
+ *              type: string
+ *            trailer:
+ *              type: string
+ *            categoryID:
+ *              type: integer
+ *          example:
+ *            poster: ./posters/3.jpg
+ *            title: The Mandalorian
+ *            resume: Ambientada tras la caída del Imperio y antes de la aparición de la Primera Orden, la Serie sigue los pasos de un pistolero solitario en las aventuras que protagoniza en los confines de la galaxia, donde no alcanza la autoridad de la Nueva República.
+ *            seasons: "2"
+ *            duration: N/A
+ *            trailer: "https://www.youtube.com/embed/aOC8E8z_ifw"
+ *            categoryID: 1
+ *    responses:
+ *      200:
+ *        description: Cinematografía actualizada
+ *        content:
+ *          application/json:
+ *            schema:
+ *              type: object
+ *              properties:
+ *                message:
+ *                  type: string
+ *              example:
+ *                message: "Cinema Updated."
+ *      404:
+ *        description: No se encontro la categoria en la base de datos / No se encontro la cinematografía en la base de datos.
+ *        content:
+ *          application/json:
+ *            schema:
+ *              type: object
+ *              properties:
+ *                message:
+ *                  type: string
+ *              examples:
+ *                conflict1:
+ *                  summary: Conflicto con el ID de categoria
+ *                  value:
+ *                    message: "ERROR 404 - Not Found: Category not found (update Cinema) -> <categoryName>"
+ *                conflict2:
+ *                  summary: Conflicto con el ID de cinematografía
+ *                  value:
+ *                    message: "ERROR 404 - Not Found: update Cinema."
+ *      500:
+ *        description: Error en el servidor
+ *        content:
+ *          application/json:
+ *            schema:
+ *              type: object
+ *              properties:
+ *                message:
+ *                  type: string
+ *              example:
+ *                message: "ERROR 500 - Internal Server Error: update Cinema."
+ */
+
+/**
+ * @swagger
+ * /cinema/{cinemaID}:
+ *  delete:
+ *    tags:
+ *      - Cinematografías
+ *    summary: Eliminar una cinematografía
+ *    description: Endpoint para eliminar una cinematografía en la base de datos.
+ *    operationId: "deleteCinema"
+ *    parameters:
+ *      - in: path
+ *        name: cinemaID
+ *        description: cinema identification
+ *        required: true
+ *        schema:
+ *          type: integer
+ *          format: int64
+ *    responses:
+ *      204:
+ *        description: Cinematografía eliminada
+ *        content:
+ *          application/json:
+ *            schema:
+ *              type: object
+ *              properties:
+ *                message:
+ *                  type: string
+ *              example:
+ *                message: "Cinema Deleted."
+ *      404:
+ *        description: No se encontro la cinematografía en la base de datos.
+ *        content:
+ *          application/json:
+ *            schema:
+ *              type: object
+ *              properties:
+ *                message:
+ *                  type: string
+ *              example:
+ *                message: "ERROR 404 - Not Found: get cinema by PK on delete Cinema."
+ *      500:
+ *        description: Error en el servidor
+ *        content:
+ *          application/json:
+ *            schema:
+ *              type: object
+ *              properties:
+ *                message:
+ *                  type: string
+ *              example:
+ *                message: "ERROR 500 - Internal Server Error: delete Cinema."
+ */
+
+// CINEMA END
+// CINEMA END
+// CINEMA END
+// CINEMA END
+// CINEMA END
+// CINEMA END

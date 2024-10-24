@@ -44,7 +44,7 @@ const createCinema = async (req, res) => {
   const { poster, title, resume, seasons, duration, trailer, categoryID } = req.body
   try {
     const categoryFound = await Category.findOne({ where: { categoryID }, attributes: ['categoryID'] })
-    if (!categoryFound) return res.status(404).json({ message: `ERROR 404 - Not Found: Category not found (create Cinema): ${categoryID}` })
+    if (!categoryFound) return res.status(404).json({ message: `ERROR 404 - Not Found: Category not found (create Cinema) -> ${categoryID}` })
     const cinema = await Cinema.create({ poster, title, resume, seasons, duration, trailer, categoryID })
     res.status(201).json(cinema)
   } catch (err) {
@@ -57,7 +57,7 @@ const updateCinema = async (req, res) => {
   const { poster, title, resume, seasons, duration, trailer, categoryID } = req.body
   try {
     const categoryFound = await Category.findOne({ where: { categoryID }, attributes: ['categoryID'] })
-    if (!categoryFound) return res.status(404).json({ message: `ERROR 404 - Not Found: Category not found on create Cinema: ${categoryID}` })
+    if (!categoryFound) return res.status(404).json({ message: `ERROR 404 - Not Found: Category not found on update Cinema -> ${categoryID}` })
     const result = await Cinema.update({ poster, title, resume, seasons, duration, trailer, categoryID },
       { where: { cinemaID } })
     result === 0
